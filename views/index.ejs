@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Image Uploader</title>
+</head>
+<body>
+
+<div class="app">
+  <form action="/images" method="post" enctype="multipart/form-data">
+    <div class="form-section">
+      <label for="imageInput">Image:</label>
+      <input type="file" accept="image/*" name="image" id="imageInput"></input>
+    </div>
+    <div class="form-section">
+      <label for="descriptionInput">Description:</label>
+      <input id="descriptionInput" type="text" name="description"></input>
+    </div>
+    <div class="form-section">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+
+  <div class="images">
+    <% for (const image of images) { %>
+      <figure class="images__container">
+        <img src="<%= image.imageUrl %>">
+        <figcaption><%= image.description %></figcaption>
+      </figure>
+    <% } %>
+  </div>
+  </div>
+
+</body>
+</html>
