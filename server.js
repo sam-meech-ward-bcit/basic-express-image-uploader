@@ -18,7 +18,7 @@ const dbName = process.env.MONGO_DB_NAME || 'image_upload_basic'
 const client = new MongoClient(mongoUrl, { useUnifiedTopology: true, useNewUrlParser: true })
 
 async function connectClient() {
-  if (client.isConnect()) {
+  if (client.isConnected()) {
     return
   }
   await client.connect()
